@@ -1,55 +1,34 @@
+const { src, dest, series, watch } = require('gulp')
+const gulp = require('gulp')
+const sync = require('browser-sync').create();
+const del = require('del')
+const sass = require('gulp-sass')(require('sass'))
+const csso = require('gulp-csso')
+const autoprefixer = require('gulp-autoprefixer');
 
-let project_folder = "dist";
-let source_folder = "src";
+const clear = () => del('dist')
 
-let path = {
-  build:{
-    html: project_folder+"/",
-    css: project_folder+"/css/",
-    js: project_folder+"/js/",
-    img : project_folder+"/img/",
-    fonts: project_folder+"/fonts/",
-  },
-  src:{
-    html: source_folder+"/*.html",
-    css: source_folder+"/scss/style.scss",
-    js: source_folder+"/js/script.js",
-    img : project_folder+"/img/**/*.{jpg, png, webp, svg, gif, ico}",
-    fonts: source_folder+"/fonts/*.ttf",
-  }, 
-  watch:{
-    html: source_folder+"/**/*.html",
-    css: source_folder+"/scss/**/*.scss",
-    js: source_folder+"/js/**/*.js",
-    img : project_folder+"/img/**/*.{jpg, png, webp, svg, gif, ico}"
-  },
-  clean: "./"+ project_folder + "./"
-}
+const html = () => src('src/**.html')
+  .pipe(dest('dist'))
 
-let { src, dest} = require ('gulp'), 
-  gulp = require ('gulp'),
-  browsersync = require('browser-sync').create();
+const scss = () => src('src/scss/style.scss')
+  .pipe(sass())
+  .pipe(autoprefixer())
+  .pipe(csso())
+  .pipe(dest('dist'))
 
-function browserSync(params) {
-  browsersync.init({
-    server:{
-      baseDir: "./"+ project_folder + "./"
-    },
-    port: 3000,
-    notify: false
+const serve = () => {
+  sync.init({
+    server: './dist'
   })
+
+  watch('src/**.html', series(html)).on('change', sync.reload)
+  watch('src/scss/**scss', series(scss)).on('change', sync.reload)
 }
 
-function html() {
-  return src(path.src.html)
-    .pipe(dest(path.build.html))
-    .pipe(browsersync.stream())
-}
 
-let build = gulp.series(html);
-let watch = gulp.parallel(build, browserSync);
+const build = gulp.series(clear, html, scss);
 
-exports.html = html;
-exports.build = build;
-exports.watch = watch;
-exports.default = watch;
+exports.default = gulp.series(clear, scss, html, serve)
+exports.build = build
+exports.clear = clear
