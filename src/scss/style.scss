@@ -1,9 +1,12 @@
-@import "input";
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import "header";
 
 *, *::after, *::before {
     box-sizing: border-box;
 }
-
 body {
+    font-family: 'Oswald', sans-serif;
+    background-color: #fff;
+    margin: 0;
     padding: 0;
 }
