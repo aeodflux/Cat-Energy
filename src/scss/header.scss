@@ -1,28 +1,28 @@
 $green: #68b738;
 .header {
-    @media screen and (min-width: 769px) {
-        width: 100%;
+    @media screen and (min-width: 1440px) {
         background-image: url("img/bg-header-desktop.png");
         background-position: right;
         background-repeat: no-repeat;
     }
-    @media screen and (min-width: 768px) and (max-width: 870px) {
-        background-position: center;
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+        background-image: url("img/bg-header-mobile.png");
+        background-repeat: no-repeat;
     }
 }
 .nav {
     display: flex;
-    @media screen and (min-width: 769px) {
+    @media screen and (min-width: 1440px) {
         justify-content: space-between;
-        margin: 0 4%;
+        margin: 0 5.5%;
         padding-top: 40px;
     }
-    @media screen and (min-width: 769px) and (max-width: 903px){
-        justify-content: space-around;
-        margin: 0 3%;
-    }
-    @media screen and (min-width: 320px) and (max-width: 768px){
+    @media screen and (min-width: 768px) and (max-width: 1439px){
         margin: 24px 30px 0;
+        padding-top: 10px;
+    }
+    @media screen and (min-width:320px) and (max-width:767px) {
+        display: none;
     }
 }
 .nav__logo {
@@ -35,13 +35,10 @@ $green: #68b738;
     margin: 0;
     list-style: none;
     display: flex;
-    @media screen and (min-width: 768px) {
-        justify-content: space-around;
-    }
 }
 .nav__item {
     &:hover {
-        @media screen and (max-width: 768px){
+        @media screen and (min-width: 768px) and (max-width: 1439px){
             border-bottom: 2px solid $green;
         }
         border-bottom: 2px solid white;
@@ -51,45 +48,48 @@ $green: #68b738;
     white-space: nowrap;
     padding-top: 18px;
     text-transform: uppercase;
+    padding: 0 12px;
     a {
         color: white;
         text-decoration: none;
-        @media screen and (max-width: 768px) {
+        @media screen and (min-width: 768px) and (max-width: 1439px) {
             color: black;
-        
+            font-size: 18px;
         }
     }
-    @media screen and (min-width: 768px) {
-        padding: 0 15px 0 15px;
+    @media screen and (min-width: 768px){
+        padding: 0 12px;
         padding-top: 18px;  
-    }
-    @media screen and (max-width: 903px) and (min-width: 768px) {
-        font-size: 15px;
-    }
-    @media screen and (max-width: 768px) {
-        margin-right: 5px;
-        font-size: 18px;
     }
 }
 .slogan-block {
-    @media screen and (min-width: 769px)  {
-        display: flex;
-        margin-left: 10%;
+    display: grid;
+    grid-template-columns: repeat(2);
+    grid-template-rows: repeat(3);
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+        display: grid;
+        grid-template-columns: repeat(1);
+        grid-template-rows: repeat(3);
     }
-    @media screen and (max-width: 1014px) {
-        margin: 20px 0;
-        margin-left: 10%;
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+        grid-template-columns: repeat(1);
+        grid-template-rows: repeat(3);
     }
 }
 .slogan-block__article {
     margin-top: 113px;
     width: 414px;
-    @media screen and (max-width: 1072px) {
-        margin-top: 30px;
-        width: 350px;
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    @media screen and (min-width: 1440px) {
+        margin-left: 193px;
     }
-    @media screen and (max-width: 768px) {
-        width: 417px;
+    @media screen and (min-width: 768px) and (max-width: 1439px) {
+        margin-left: 120px;
+    }
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+        margin-top: 29px;
+        width: 320px;
     }
 }
 .slogan-block__heading {
@@ -98,45 +98,102 @@ $green: #68b738;
     line-height: 60px;
     font-size: 60px;
     font-weight: inherit;
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+        color: white;
+        font-size: 36px;
+        line-height: 36px;
+        text-align: center;
+    }
 }
 .slogan-block__paragraph {
     font-size: 20px;
     text-transform: uppercase;
     margin: 53px 0;
-    @media screen and (max-width: 1014px) {
-        margin: 20px 0;
+    @media screen and (min-width: 320px) and (max-width: 767px){
+        color: white;
+        text-align: center;
+        font-size: 14px;
+        margin: 19px 0;
     }
 }
 .slogan-block__button {
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
     font-size: 20px;
     color: white;
     font-family: inherit;
     text-transform: uppercase;
     border-style: none;
     background-color: $green;
-    @media screen and (min-width: 768px) {
-        width: 246px;
-        height: 53px;
+    width: 245px;
+    height: 30%;
+    @media screen and (min-width: 1440px) {
+        margin-left: 193px;
+        grid-column: 1 / 1;
+        grid-row: 2 / 2;
     }
-    @media screen and (max-width: 768px) {
-        width: 245px;
-        height: 52px;
+    @media screen and (min-width: 768px) and (max-width: 1439px) {
+        margin-left: 120px;
+        height: 162%;
+    }
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+        grid-column: 1 / 1;
+        grid-row: 3 / 3;
+        width: 280px;
+        height: 126%;
+        margin: 0 auto;
     }
 }
 .slogan-block__model {
     margin-left: -50px;
-    @media screen and (max-width: 963px) {
-        width: 50%;
-        height: 100%;
-        margin-top: 70px;
-        margin-left: -30px;
+    @media screen and (min-width:1440px) {
+        grid-column: 2 / 2;
+        grid-row: 2 / 2;
+        margin-top: -337px;
+        margin-left: -384px;
     }
-    @media screen and (max-width:768px) {
+    @media screen and (min-width:768px) and (max-width:1439px) {
         position: absolute;
         width: 700px;
         height: 610px;
         z-index: -1;
-        margin-top: -100px;
+        margin-top: 350px;
         margin-left: -30px;
     }
+    @media screen and (min-width:320px) and (max-width:767px) {
+        grid-column: 1 / 1;
+        grid-row: 2 / 2;
+        margin: 10px 2px;
+        width: 280px;
+        height: 270px;
+    }
+}
+.nav-mobile {
+    display: none;
+    @media screen and (min-width:320px) and (max-width:767px) {
+        display: block;
+        padding: 0 5%;
+        background-color: #fff;
+        width: 100%;
+        margin-top: 0;
+    }
+}
+.nav-mobile__menu {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+.name-mobile {
+    margin-top: 3px;
+}
+.menu-icon-mobile {
+    margin-top: 3px;
+}
+.logo-mobile {
+    margin-top: -8px;
+    margin-bottom: 10px;
+}
+.nav-mobile__item {
+    cursor: pointer;
 }
