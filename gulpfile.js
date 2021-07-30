@@ -10,7 +10,8 @@ const clear = () => del('dist')
 
 const html = () => src('src/**.html')
   .pipe(dest('dist'))
-
+const imgs = () => src('src/img/**')
+  .pipe(dest('dist/img/'))
 const scss = () => src('src/scss/style.scss')
   .pipe(sass())
   .pipe(autoprefixer())
@@ -27,8 +28,8 @@ const serve = () => {
 }
 
 
-const build = gulp.series(clear, html, scss);
+const build = gulp.series(clear, html, imgs, scss);
 
-exports.default = gulp.series(clear, scss, html, serve)
+exports.default = gulp.series(clear, scss, html, imgs, serve)
 exports.build = build
 exports.clear = clear
