@@ -5,12 +5,14 @@ const del = require('del')
 const sass = require('gulp-sass')(require('sass'))
 const csso = require('gulp-csso')
 const autoprefixer = require('gulp-autoprefixer');
+const imagemin = require('gulp-imagemin');
 
 const clear = () => del('dist')
 
 const html = () => src('src/**.html')
   .pipe(dest('dist'))
 const imgs = () => src('src/img/**')
+  .pipe(imagemin())
   .pipe(dest('dist/img/'))
 const scss = () => src('src/scss/style.scss')
   .pipe(sass())
@@ -25,6 +27,7 @@ const serve = () => {
 
   watch('src/**.html', series(html)).on('change', sync.reload)
   watch('src/scss/**scss', series(scss)).on('change', sync.reload)
+  watch('src/img/**', series(imgs)).on('change', sync.reload)
 }
 
 
