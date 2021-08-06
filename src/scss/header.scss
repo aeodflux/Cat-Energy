@@ -229,20 +229,22 @@ $green: #68b738;
 
 
 // Мобильная менюшка
-.nav__logo {
-    order: 2;
-    border-bottom: solid black 1px;
-    display: flex;
-    justify-content: space-around;
-}
-.nav__menu {
-    display: block;
-    margin: 0 auto;
-    padding: 0;
-}
-.nav__item {
-    border-bottom: solid black 1px;
-    text-align: center;
-    padding: 24px 0;
-    font-weight: bold;
+@media screen and (max-width: 767px) {
+    .nav__logo {
+        order: 2;
+        border-bottom: solid black 1px;
+        display: flex;
+        justify-content: space-around;
+    }
+    .nav__menu {
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .nav__item {
+        border-bottom: solid black 1px;
+        text-align: center;
+        padding: 24px 0;
+        font-weight: bold;
+    }
 }
