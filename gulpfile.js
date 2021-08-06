@@ -19,6 +19,8 @@ const scss = () => src('src/scss/style.scss')
   .pipe(autoprefixer())
   .pipe(csso())
   .pipe(dest('dist'))
+const jscript = () => src('src/js/**')
+  .pipe(dest('dist'))
 
 const serve = () => {
   sync.init({
@@ -30,8 +32,8 @@ const serve = () => {
 }
 
 
-const build = gulp.series(clear, html, imgs, scss);
+const build = gulp.series(clear, html, imgs, jscript, scss);
 
-exports.default = gulp.series(clear, scss, html, imgs, serve)
+exports.default = gulp.series(clear, scss, html, imgs, jscript, serve)
 exports.build = build
 exports.clear = clear

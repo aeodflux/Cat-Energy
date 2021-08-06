@@ -5,6 +5,12 @@ $green: #68b738;
 .nav__mobile-item {
     display: none;
 }
+.nav__logo-desktop {
+    background-image: url('img/logo-desktop.png');
+    width: 202px;
+    height: 59px;
+}
+
 .header {
     background-image: url("img/bg-header-container.png");
     background-position: right;
@@ -217,8 +223,6 @@ $green: #68b738;
     }
     .nav__mobile-item {
         display: block;
-    }
-    .j-menu-open {
         cursor: pointer;
     }
     .mobile-none {
@@ -230,21 +234,43 @@ $green: #68b738;
 
 // Мобильная менюшка
 @media screen and (max-width: 767px) {
+    .menu-mobile {
+        .nav__item {
+            border-bottom: solid black 1px;
+            text-align: center;
+            padding: 24px 0;
+            font-weight: bold;
+        }
+    }
     .nav__logo {
         order: 2;
         border-bottom: solid black 1px;
         display: flex;
         justify-content: space-around;
     }
-    .nav__menu {
+    .nav__menu-open {
         display: block;
         margin: 0 auto;
         padding: 0;
     }
-    .nav__item {
-        border-bottom: solid black 1px;
-        text-align: center;
-        padding: 24px 0;
-        font-weight: bold;
+    .nav__logo-mobile {
+        background-image: url('img/logo-mobile.png');
+        width: 33px;
+        height: 38px;
+    }
+    .nav__name-mobile {
+        background-image: url('img/name-mobile.png');
+        width: 101px;
+        height: 18px;
+    }
+    .j-menu-open {
+        background-image: url('img/nav-open.png');
+        width: 24px;
+        height: 18px;
+    }
+    .j-menu-close {
+        background-image: url('img/nav-close.png');
+        width: 18px;
+        height: 18px;
     }
 }
