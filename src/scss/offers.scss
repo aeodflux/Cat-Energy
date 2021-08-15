@@ -1,0 +1,41 @@
+
+//Десктоп
+.programms {
+    display: flex;
+    justify-content: space-around;
+    width: 1220px;
+    margin: 60px auto;
+}
+.offer {
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 54px;
+    background-color: rgb(235, 235, 235);
+    width: 570px;
+    &__heading {
+        margin: 10px 0;
+        display: flex;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-size: 20px;
+        align-items: center;
+        line-height: 30px;
+    }
+    &__icon {
+        margin-right: 40px;
+    }
+    &__link {
+        &::after {
+            content: url('img/right-arrow-long.png');
+            margin-left: 10px;
+        }
+    }
+    &__text {
+        margin: 30px 0;
+    }
+}

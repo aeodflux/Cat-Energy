@@ -2,7 +2,7 @@ $green: #68b738;
 
 //Десктоп//
 
-.nav__mobile-item {
+.nav__toggle-menu {
     display: none;
 }
 .nav__logo-desktop {
@@ -221,37 +221,41 @@ $green: #68b738;
             position: relative;
         }
     }
-    .nav__mobile-item {
-        display: block;
-        cursor: pointer;
-    }
-    .mobile-none {
-        display: none;
-    }
 }
 //Конец мобильной версии//
 
 
 // Мобильная менюшка
 @media screen and (max-width: 767px) {
-    .menu-mobile {
-        .nav__item {
-            border-bottom: solid black 1px;
-            text-align: center;
-            padding: 24px 0;
-            font-weight: bold;
-        }
+    .header__container {
+        padding-top: 55px;
     }
-    .nav__logo {
+    .nav {
+        position: absolute;
+    }
+    .nav__logo-desktop {
+        display: none;
+    }
+    .nav__menu {
+        margin: 0 auto;
+        padding: 0;
+    }
+    .nav__item {
+        border-bottom: solid black 1px;
+        text-align: center;
+        padding: 24px 0;
+        font-weight: bold;
+    }
+    .nav__header {
+        background-color: #fff;
         order: 2;
+        position: relative;
+        z-index: 3;
         border-bottom: solid black 1px;
         display: flex;
         justify-content: space-around;
-    }
-    .nav__menu-open {
-        display: block;
-        margin: 0 auto;
-        padding: 0;
+        align-items: center;
+        padding: 8px 0;
     }
     .nav__logo-mobile {
         background-image: url('img/logo-mobile.png');
@@ -263,14 +267,52 @@ $green: #68b738;
         width: 101px;
         height: 18px;
     }
-    .j-menu-open {
+    .nav__toggle-menu {
+        display: block;
         background-image: url('img/nav-open.png');
         width: 24px;
         height: 18px;
+        border: none;
     }
-    .j-menu-close {
-        background-image: url('img/nav-close.png');
-        width: 18px;
-        height: 18px;
+    
+    
+    .nav--opened {
+        .nav {
+        z-index: 2;
+            .nav__toggle-menu {
+            background-image: url('img/nav-close.png');
+            width: 18px;
+            height: 18px;
+            border: none;
+            }
+            .nav__menu {
+            display: block;
+            }
+            .move-down {
+                animation: anim-down 1s both;
+            }
+            .move-up {
+                animation: anim-up 2s both;
+            }
+        }
+    }
+    
+}
+
+@keyframes anim-down {
+    0% {
+        margin-top: -100%;
+    }
+    100% {
+        margin-top: 0;
+    }
+}
+
+@keyframes anim-up {
+    0% {
+        margin-top: 0;
+    }
+    100% {
+        margin-top: -100%;
     }
 }
