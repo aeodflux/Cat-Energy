@@ -1,16 +1,24 @@
 $green: #68b738;
 
+@keyframes anim-down {
+    0% {
+        margin-top: -100%;
+    }
+    100% {
+        margin-top: 0;
+    }
+}
+
+@keyframes anim-up {
+    0% {
+        margin-top: 0;
+    }
+    100% {
+        margin-top: -100%;
+    }
+}
+
 //Десктоп//
-
-.nav__toggle-menu {
-    display: none;
-}
-.nav__logo-desktop {
-    background-image: url('img/logo-desktop.png');
-    width: 202px;
-    height: 59px;
-}
-
 .header {
     background-image: url("img/bg-header-container.png");
     background-position: right;
@@ -27,35 +35,43 @@ $green: #68b738;
 }  
 .nav {
     justify-content: space-around;
-    padding-top: 40px;
     display: flex;
+    width: 1500px;
+    margin: 0 auto;
 
     &__logo {
+        &--desktop{
+            margin-top: 13px;
+            background-image: url('img/logo-desktop.png');
+            width: 202px;
+            height: 59px;
+        }
         margin: 0;
         list-style: none;
         padding: 0;
     }
     &__menu {
-        padding-right: 0;
-        margin: 0;
+        justify-content: space-between;
         list-style: none;
         display: flex;
     }
     &__item {
-        &:hover {
-            border-bottom: 2px solid white;
-        }
+        margin-top: 13px;
         font-size: 20px;
         line-height: 24px;
         white-space: nowrap;
-        padding-top: 18px;
         text-transform: uppercase;
         padding: 0 12px;
-
-        a {
-            color: white;
-            text-decoration: none;
+    }
+    &__link {
+        &--active {
+            border-bottom: 2px solid white;
         }
+        color: white;
+        text-decoration: none;
+    }
+    &__toggle-menu {
+        display: none;
     }
 }
 
@@ -119,14 +135,13 @@ $green: #68b738;
     .nav {
         margin: 0 auto;
         width: 768px;
-
-        &__item {
-            &:hover {
+        &__link {
+            &--active {
                 border-bottom: 2px solid $green;
             }
+        }
+        &__item {
             padding: 0 12px;
-            padding-top: 18px; 
-
             a {
                 color: black;
                 font-size: 18px;
@@ -159,21 +174,34 @@ $green: #68b738;
 @media screen and (max-width: 767px) {
     .header {
         &__container {
+            padding-top: 55px;
             width: 320px;
             background-image: url("img/cat-background1.jpg");
             background-size: 100%;
             background-repeat: no-repeat;
         }
     }
+
     .nav {
+        position: absolute;
         display: block;
         padding: 0;
         background-color: #fff;
         width: 100%;
         margin: 0 auto;
-
+        &__link {
+            &--active {
+                border: none;
+            }
+        }
         &__menu {
             display: none;
+            &--animation--opening {
+                animation: anim-down 1s both;
+            }
+            &--animation--closing {
+                animation: anim-up 2s both;
+            }
         }
         &__logo {
             display: flex;
@@ -182,7 +210,61 @@ $green: #68b738;
             align-items: center;
             padding: 10px 0;
         }
-    }
+        &__logo {
+            &--desktop {
+                display: none;
+            }
+            &--mobile {
+                background-image: url('img/logo-mobile.png');
+                width: 33px;
+                height: 38px;
+            }
+        }
+        &__item {
+            border-bottom: solid black 1px;
+            text-align: center;
+            padding: 24px 0;
+            font-weight: bold;
+        }
+        &__header {
+            background-color: #fff;
+            order: 2;
+            position: relative;
+            z-index: 3;
+            border-bottom: solid black 1px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 8px 0;
+        }
+        &__name--mobile {
+            background-image: url('img/name-mobile.png');
+            width: 101px;
+            height: 18px;
+        }
+        &__toggle-menu {
+            display: block;
+            background-image: url('img/nav-open.png');
+            width: 24px;
+            height: 18px;
+            border: none;
+        }
+        &--opened {
+            z-index: 2;
+            .nav__toggle-menu {
+                background-image: url('img/nav-close.png');
+                width: 18px;
+                height: 18px;
+                border: none;
+                }
+            .nav__menu {
+                margin: 0 auto;
+                padding: 0;
+                display: block;
+            }
+        }
+    } 
+
     .slogan {
         display: grid;
         grid-template-columns: repeat(1);
@@ -221,98 +303,77 @@ $green: #68b738;
             position: relative;
         }
     }
+
 }
 //Конец мобильной версии//
 
 
-// Мобильная менюшка
+// Мобильное меню
 @media screen and (max-width: 767px) {
-    .header__container {
-        padding-top: 55px;
-    }
     .nav {
         position: absolute;
-    }
-    .nav__logo-desktop {
-        display: none;
-    }
-    .nav__menu {
-        margin: 0 auto;
-        padding: 0;
-    }
-    .nav__item {
-        border-bottom: solid black 1px;
-        text-align: center;
-        padding: 24px 0;
-        font-weight: bold;
-    }
-    .nav__header {
-        background-color: #fff;
-        order: 2;
-        position: relative;
-        z-index: 3;
-        border-bottom: solid black 1px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding: 8px 0;
-    }
-    .nav__logo-mobile {
-        background-image: url('img/logo-mobile.png');
-        width: 33px;
-        height: 38px;
-    }
-    .nav__name-mobile {
-        background-image: url('img/name-mobile.png');
-        width: 101px;
-        height: 18px;
-    }
-    .nav__toggle-menu {
-        display: block;
-        background-image: url('img/nav-open.png');
-        width: 24px;
-        height: 18px;
-        border: none;
-    }
-    
-    
-    .nav--opened {
-        .nav {
-        z-index: 2;
-            .nav__toggle-menu {
-            background-image: url('img/nav-close.png');
-            width: 18px;
-            height: 18px;
-            border: none;
-            }
-            .nav__menu {
-            display: block;
-            }
-            .move-down {
-                animation: anim-down 1s both;
-            }
-            .move-up {
-                animation: anim-up 2s both;
+        &--opened { //Header как контейнер для преобразований
+            z-index: 2;
+            .nav {
+                &__toggle-menu {
+                    background-image: url('img/nav-close.png');
+                    width: 18px;
+                    height: 18px;
+                    border: none;
+                }
+                &__menu {
+                    display: block;
+                }
+                .move-down {
+                    animation: anim-down 1s both;
+                }
+                .move-up {
+                    animation: anim-up 2s both;
+                }
             }
         }
-    }
-    
-}
-
-@keyframes anim-down {
-    0% {
-        margin-top: -100%;
-    }
-    100% {
-        margin-top: 0;
-    }
-}
-
-@keyframes anim-up {
-    0% {
-        margin-top: 0;
-    }
-    100% {
-        margin-top: -100%;
-    }
+        &__logo {
+            &--desktop {
+                display: none;
+            }
+            &--mobile {
+                background-image: url('img/logo-mobile.png');
+                width: 33px;
+                height: 38px;
+            }
+        }
+        &__menu {
+            margin: 0 auto;
+            padding: 0;
+        }
+        &__item {
+            border-bottom: solid black 1px;
+            text-align: center;
+            padding: 24px 0;
+            font-weight: bold;
+        }
+        &__header {
+            background-color: #fff;
+            order: 2;
+            position: relative;
+            z-index: 3;
+            border-bottom: solid black 1px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 8px 0;
+        }
+        &__name--mobile {
+            background-image: url('img/name-mobile.png');
+            width: 101px;
+            height: 18px;
+        }
+        &__toggle-menu {
+            display: block;
+            background-image: url('img/nav-open.png');
+            width: 24px;
+            height: 18px;
+            border: none;
+        }
+    } 
 }
