@@ -26,7 +26,7 @@ $green: #68b738;
     background-repeat: no-repeat;
 
     &__container {
-        width: 1440px;
+        max-width: 1440px;
         background-image: url("img/cat-background1.jpg");
         background-position: right;
         background-repeat: no-repeat;
@@ -36,7 +36,7 @@ $green: #68b738;
 .nav {
     justify-content: space-around;
     display: flex;
-    width: 1500px;
+    max-width: 1500px;
     margin: 0 auto;
 
     &__logo {
@@ -100,7 +100,10 @@ $green: #68b738;
         margin: 53px 0;
     }
     &__button {
-        margin-left: 193px;
+        height: fit-content;
+        text-align: center;
+        padding: 10px 30px;
+        margin: 0 auto;
         grid-column: 1 / 1;
         grid-row: 2 / 2;
         font-size: 20px;
@@ -109,8 +112,7 @@ $green: #68b738;
         text-transform: uppercase;
         border-style: none;
         background-color: $green;
-        width: 245px;
-        height: 30%;
+        width: fit-content;
     }
     &__model {
         grid-column: 2 / 2;
@@ -125,16 +127,15 @@ $green: #68b738;
 //Планшетная версия//
 @media screen and (max-width: 1439px) {
     .header {
-        background: none;
-
+        background-image: none;
         &__container {
-            width: 768px;
+            max-width: 768px;
             background: none;
         }
     }
     .nav {
         margin: 0 auto;
-        width: 768px;
+        max-width: 768px;
         &__link {
             &--active {
                 border-bottom: 2px solid $green;
@@ -155,7 +156,6 @@ $green: #68b738;
         }
         &__button {
             margin-left: 120px;
-            height: 162%;
         }
         &__model {
             position: absolute;
@@ -173,9 +173,13 @@ $green: #68b738;
 //Мобильная версия//
 @media screen and (max-width: 767px) {
     .header {
+        background-image: url('img/bg-header-container.png');
+        background-size: 100% 310px;
+        background-position: top;
+
         &__container {
             padding-top: 55px;
-            width: 320px;
+            max-width: 320px;
             background-image: url("img/cat-background1.jpg");
             background-size: 100%;
             background-repeat: no-repeat;
@@ -289,8 +293,8 @@ $green: #68b738;
         &__button {
             grid-column: 1 / 1;
             grid-row: 3 / 3;
-            width: 280px;
-            height: 126%;
+            width: fit-content;
+            height: fit-content;
             margin: 0 auto;
         }
         &__model {
