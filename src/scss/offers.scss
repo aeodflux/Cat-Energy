@@ -2,22 +2,23 @@
 //Десктоп
 .programms {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
-    max-width: max-content;
+    max-width: 1220px;
     margin: 60px auto;
     margin-bottom: 0;
 }
 .offer {
-    &:first-child{
-        margin-right: 30px;
-    }
+    margin-bottom: 32px;
+    margin-right: 15px;
+    margin-left: 15px;
     display: grid;
     grid-auto-rows: minmax(min-content, max-content);
     grid-template-columns: 1fr 2fr;
     justify-content: space-between;
     padding: 30px 54px;
     max-width: 570px;
-    background-color: rgb(235, 235, 235);
+    background-color: $gray;
     &__heading {
         width: fit-content;
         margin-left: -30px;
@@ -43,15 +44,15 @@
     }
     &__link {
         text-decoration: none;
-        color: black;
+        color: $black;
         width: fit-content;
         margin: 0 0 10px;
-        &-text {
-            margin: 0;
-            &::after {
-                content: url('img/right-arrow-long.png');
-                margin-left: 10px;
-            }
+    }
+    &__link-text {
+        margin: 0;
+        &::after {
+            content: url('img/right-arrow-long.png');
+            margin-left: 10px;
         }
     }
     &__text {
@@ -60,7 +61,7 @@
 }
 
 //Планшетная версия//
-@media screen and (max-width: 1439px) {
+@media screen and (max-width: $desk) {
     .programms {
         width: calc(100% - 30px);
         margin: 560px auto 0;
@@ -92,7 +93,7 @@
                     width: 200px;
                 }
                 &--2 {
-                    margin-left: 20px;
+                    margin-left: 27px;
                     width: 260px;
                 }
             }
@@ -105,13 +106,13 @@
 }
 
 //Мобильная версия
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $tab) {
     .programms {
         margin-top: 25px;
     }
     .offer {
         padding: 10px 30px;
-        max-width: 320px;
+        max-width: 579px;
         grid-auto-rows: minmax(min-content, max-content);
         grid-template-columns: 1fr 2fr;
         justify-content: space-between;
