@@ -61,7 +61,7 @@
 }
 
 //Планшетная версия//
-@media screen and (max-width: $desk) {
+@media screen and (max-width: $desktop) {
     .programms {
         width: calc(100% - 30px);
         margin: 560px auto 0;
@@ -106,23 +106,25 @@
 }
 
 //Мобильная версия
-@media screen and (max-width: $tab) {
+@media screen and (max-width: $tablet) {
     .programms {
         margin-top: 25px;
     }
     .offer {
-        padding: 10px 30px;
+        padding: 10px 20px;
         max-width: 579px;
         grid-auto-rows: minmax(min-content, max-content);
         grid-template-columns: 1fr 2fr;
         justify-content: space-between;
         &__heading {
+            margin-top: -5px;
             grid-column: 2/2;
             grid-row: 1/1;
             font-size: 15px;
         }
         &__icon {
             margin: 0;
+            margin-top: -10px;
             grid-column: 1/1;
             grid-row: 1/1;
             &--width {

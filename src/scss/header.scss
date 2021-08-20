@@ -129,7 +129,7 @@
 
 
 //Планшетная версия//
-@media screen and (max-width: $desk) {
+@media screen and (max-width: $desktop) {
     .header {
         background-image: none;
         &__container {
@@ -175,18 +175,26 @@
 
 
 //Мобильная версия//
-@media screen and (max-width: $tab) {
+@media screen and (max-width: $tablet) {
     .header {
-        background-image: url('img/bg-header-container.png');
-        background-size: 100% 310px;
-        background-position: top;
+        // background-image: url('img/bg-header-container.png');
+        // background-size: 100% 310px;
+        // background-position: top;
 
+        &__background {
+            width: fit-content;
+            position: absolute;
+            margin: 0 calc(100%-320px);
+            &-image {
+                margin: 0 auto;
+            }
+        }
         &__container {
             padding-top: 55px;
             max-width: 320px;
-            background-image: url("img/cat-background1.jpg");
-            background-size: 100%;
-            background-repeat: no-repeat;
+            // background-image: url("img/cat-background1.jpg");
+            // background-size: 100%;
+            // background-repeat: no-repeat;
         }
     }
 
@@ -223,6 +231,7 @@
                 display: none;
             }
             &--mobile {
+                margin-top: -5px;
                 background-image: url('img/logo-mobile.png');
                 width: 33px;
                 height: 38px;
@@ -244,7 +253,8 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            padding: 8px 0;
+            padding: 18px 0;
+            border-bottom: none;
         }
         &__name--mobile {
             background-image: url('img/name-mobile.png');
@@ -279,6 +289,7 @@
         grid-template-columns: repeat(1);
         grid-template-rows: repeat(3);
         &__article {
+            z-index: 1;
             width: fit-content;
             margin: 29px 0 0;
         }
@@ -295,10 +306,11 @@
             margin: 19px 0;
         }
         &__button {
-            font-size: 15px;
+            font-size: 14px;
             grid-column: 1 / 1;
             grid-row: 3 / 3;
-            width: fit-content;
+            max-width: 579px;
+            min-width: 244px;
             height: fit-content;
             margin: 0 auto;
         }
