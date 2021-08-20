@@ -102,6 +102,7 @@
         margin: 53px 0;
     }
     &__button {
+        cursor: pointer;
         margin-left: 193px;
         height: fit-content;
         text-align: center;
@@ -189,9 +190,9 @@
 
         &__background {
             display: block;
-            top:34%;
-            left:50%;
-            transform:translate(-50%, -50%);
+            top: 216px;
+            left: 50%;
+            transform: translate(-50%, -50%);
             width: fit-content;
             position: absolute;
             &-image {
