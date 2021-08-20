@@ -31,6 +31,9 @@
         background-repeat: no-repeat;
         margin: 0 auto;
     }
+    &__background {
+        display: none;
+    }
 }  
 .nav {
     justify-content: space-around;
@@ -136,6 +139,9 @@
             max-width: 768px;
             background: none;
         }
+        &__background {
+            display: none;
+        }
     }
     .nav {
         margin: 0 auto;
@@ -177,14 +183,17 @@
 //Мобильная версия//
 @media screen and (max-width: $tablet) {
     .header {
-        // background-image: url('img/bg-header-container.png');
-        // background-size: 100% 310px;
-        // background-position: top;
+        background-image: url('img/bg-header-container.png');
+        background-size: 100% 360px;
+        background-position: top;
 
         &__background {
+            display: block;
+            top:34%;
+            left:50%;
+            transform:translate(-50%, -50%);
             width: fit-content;
             position: absolute;
-            margin: 0 calc(100%-320px);
             &-image {
                 margin: 0 auto;
             }
