@@ -36,6 +36,7 @@
     }
 }  
 .nav {
+    padding-top: 26px;
     justify-content: space-around;
     display: flex;
     max-width: 1500px;
@@ -145,6 +146,7 @@
         }
     }
     .nav {
+        padding-top: 10px;
         margin: 0 auto;
         max-width: 768px;
         &__link {
@@ -295,6 +297,7 @@
     } 
 
     .slogan {
+        margin-top: 20px;
         display: grid;
         grid-template-columns: repeat(1);
         grid-template-rows: repeat(3);
