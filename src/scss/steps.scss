@@ -6,7 +6,6 @@
         font-size: 60px;
         margin: 0;
         margin-bottom: 57px;
-        margin-left: 5px;
     }
     &__list {
         margin: 0;
@@ -14,7 +13,7 @@
         list-style: none;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: space-between;
         margin-right: -70px;
         counter-reset: steps;         
     }
@@ -53,16 +52,22 @@
 
 @media screen and (max-width: $desktop) {
     .steps {
+        margin: 0 auto;
         overflow: hidden;
-        max-width: 900px;
-        &__item {
-            margin-right: 248px;
+        max-width: 720px;
+        width: calc(100% - 50px);
+        max-width: 895px;
+        &__list {
+            margin-right: 0;
+            // margin-left: -43px;
         }
     }
 }
 @media screen and (max-width: $tablet) {
     .steps {
-        max-width: 323px;
+        margin-left: 20px;
+        margin-right: 20px;
+        max-width: 324px;
         &__list {
             flex-direction: column;
             flex-wrap: nowrap;

@@ -63,7 +63,7 @@
 //Планшетная версия//
 @media screen and (max-width: $desktop) {
     .programms {
-        width: calc(100% - 30px);
+        max-width: calc(100% - 50px);
         margin: 560px auto 0;
         display: flex;
         flex-direction: column;
@@ -73,7 +73,6 @@
         display: grid;
         grid-template-columns: 1fr 300px;
         grid-template-rows: 2;
-        width: calc(100% - 30px);
         margin: 0 auto;
         margin-bottom: 27px;
         &__text {
@@ -112,7 +111,6 @@
     }
     .offer {
         padding: 10px 20px;
-        max-width: 579px;
         grid-auto-rows: minmax(min-content, max-content);
         grid-template-columns: 1fr 7fr;
         justify-content: space-between;
