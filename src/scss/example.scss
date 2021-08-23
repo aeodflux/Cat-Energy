@@ -1,0 +1,74 @@
+.example {
+    width: 100%;
+    &__heading {
+        overflow: hidden;
+        width: calc(100% - 50px);
+        max-width: 1189px;
+        font-weight: inherit;
+        font-size: 60px;
+        margin: 0 auto;
+        margin-bottom: 80px;
+    }
+    &__content {
+        width: 100%;
+        padding: 86px 0;
+        background-color: $gray;
+    }
+    &__container {
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 50px);
+        max-width: 1189px;
+        margin: 0 auto;
+    }
+    &__text {
+        max-width: 410px;
+        font-size: 16px;
+        margin: 0 0 70px;
+    }
+}
+.statistics {
+    max-width: 370px;
+    &__container {
+        margin-bottom: -35px;
+        flex-wrap: wrap;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    &__item {
+        position: relative;
+        padding: 10px 10px 14px;
+        width: 160px;
+        font-size: 30px;
+        border: solid rgb(189, 189, 189) 2px;
+        border-radius: 4px;
+        text-align: center;
+        margin-bottom: 35px;
+    }
+    &__caption {
+        font-size: 14px;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: fit-content;
+        padding: 0 10px;
+        background-color: $gray;
+    }
+    &__food-cost {
+        margin-top: 55px;
+    }
+}
+.food-cost {
+    max-width: 325px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    &__heading {
+        margin: 0;
+    }
+}
