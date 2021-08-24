@@ -10,13 +10,14 @@
         margin-bottom: 80px;
     }
     &__content {
+        display: flex;
         width: 100%;
         padding: 86px 0;
         background-color: $gray;
     }
     &__container {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         width: calc(100% - 50px);
         max-width: 1189px;
         margin: 0 auto;
@@ -28,6 +29,8 @@
     }
 }
 .statistics {
+    grid-column: 1/1;
+    grid-row: 2/2;
     max-width: 370px;
     &__container {
         margin-bottom: -35px;
@@ -41,7 +44,7 @@
         padding: 10px 10px 14px;
         width: 160px;
         font-size: 30px;
-        border: solid rgb(189, 189, 189) 2px;
+        border: solid $light-gray 2px;
         border-radius: 4px;
         text-align: center;
         margin-bottom: 35px;
@@ -70,5 +73,76 @@
     font-size: 20px;
     &__heading {
         margin: 0;
+    }
+}
+.exemplum {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    &__container {
+        max-width: 620px;
+        position: absolute;
+        top: -143%;
+    }
+    &__figure {
+        position: absolute;
+        &--position {
+            &--before {
+                padding-left: 211px;
+                // padding-right: 302px;
+                overflow: hidden;
+                margin-left: -76px;
+                width: 678px;
+                background-image: url("img/before-cat.png");
+                background-position: left;
+                background-clip: content-box;
+                height: 499px;
+            }
+            &--after {
+                overflow: hidden;
+                width: 678px;
+                background-image: url("img/after-cat.png");
+                background-position: left;
+                background-clip: content-box;
+                padding-right: 465px;
+                height: 499px;
+                margin-left: -76px;
+                // margin-top: -24px;
+            }
+        }
+    }
+    &__input {
+        background: none;
+        width: 435px;
+        appearance: none;
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            cursor: pointer;
+            background: $green;
+            border: 1px solid $green;
+            border-radius: 10px;
+            width: 12px;
+            height: 12px;
+            margin-top: -1px;
+            box-shadow: 0px  0 0 15px $white;
+        }
+        &::-webkit-slider-runnable-track {
+            height: 10px;
+            background-color: $light-gray;
+            border-radius: 5px;
+        }
+    }
+    &__slider {
+        display: flex;
+        position: absolute;
+        top: 187%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &__caption {
+        margin: 0 24px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 20px;
     }
 }
