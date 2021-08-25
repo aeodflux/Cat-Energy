@@ -12,7 +12,7 @@
     &__content {
         display: flex;
         width: 100%;
-        padding: 86px 0;
+        padding: 0;
         background-color: $gray;
     }
     &__container {
@@ -26,6 +26,9 @@
         max-width: 410px;
         font-size: 16px;
         margin: 0 0 70px;
+    }
+    &__left {
+        padding: 86px 0;
     }
 }
 .statistics {
@@ -76,20 +79,23 @@
     }
 }
 .exemplum {
-    position: relative;
+    margin-top: -132px;
     display: flex;
     flex-direction: column;
+    &__background-tablet {
+        display: none;
+    }
     &__container {
+        position: relative;
         max-width: 620px;
-        position: absolute;
-        top: -143%;
+        height: 499px;
+        margin-bottom: 16px;
     }
     &__figure {
         position: absolute;
         &--position {
             &--before {
                 padding-left: 211px;
-                // padding-right: 302px;
                 overflow: hidden;
                 margin-left: -76px;
                 width: 678px;
@@ -97,6 +103,7 @@
                 background-position: left;
                 background-clip: content-box;
                 height: 499px;
+                filter: saturate(30%);
             }
             &--after {
                 overflow: hidden;
@@ -107,7 +114,6 @@
                 padding-right: 465px;
                 height: 499px;
                 margin-left: -76px;
-                // margin-top: -24px;
             }
         }
     }
@@ -134,15 +140,206 @@
     }
     &__slider {
         display: flex;
-        position: absolute;
-        top: 187%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        &--mobile {
+            display: none;
+        }
+        &--desktop {
+            display: block;
+        }
     }
     &__caption {
         margin: 0 24px;
         text-transform: uppercase;
         font-weight: bold;
         font-size: 20px;
+    }
+}
+@media screen and (max-width: $desktop) {
+    .example {
+        &__container {
+            max-width: none;
+            margin: 0;
+            width: 100%;
+            grid-template-columns: 1fr;
+            grid-template-rows: 4;
+        }
+        &__content {
+            padding-top: 0;
+            background: none;
+            width: 100%;
+            margin: 0 auto;
+        }
+        &__heading {
+            margin-bottom: 75px;
+            max-width: 895px;
+        }
+        &__text {
+            max-width: 700px;
+            width: calc(100% - 50px);
+        }
+        &__left {
+            padding-top: 0;
+            max-width: 895px;
+            width: calc(100% - 50px);
+            margin: 0 auto;
+        }
+    }
+    .statistics {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        &__food-cost {
+            flex-direction: column;
+            margin-top: 0;
+            align-items: flex-end;
+        }
+        &__item {
+            margin-right: 45px;
+        }
+        &__caption {
+            background: #fff;
+        }
+    }
+    .exemplum {
+        background-color: $gray;
+        display: flex;
+        flex-direction: column;
+        margin-top: 120px;
+        &__container {
+            margin: 0 auto;
+            margin-top: -160px;
+        }
+        &__background {
+            display: block;
+            position: absolute;
+            width: 100vw;
+            background-color: $gray;
+            height: 100px;
+            overflow: hidden;
+            margin-left: -75px;
+        }
+        &__slider {
+            margin: 0 auto;
+            padding-bottom: 70px;
+        }
+        &__figure {
+            margin-left: -366px;
+        }
+        &__input {
+            width: 550px;
+        }
+    }
+}
+@media screen and (max-width: $tablet) {
+    .statistics {
+        max-width: 305px;
+        margin: 0 auto;
+        flex-direction: column;
+        &__item {
+            max-width: 120px;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+        &__caption {
+            background-color: $gray;
+            font-size: 13px;
+        }
+        &__food-cost {
+            align-items: center;
+            flex-direction: row;
+            font-size: 16px;
+            justify-content: center;
+        }
+        &__container {
+            margin: 0 auto;
+        }
+    }
+    .food-cost {
+        &__heading {
+            margin: 0 3px;
+        }
+        &__price {
+            margin: 0 3px;
+        }
+    }
+    .example {
+        background-color: $gray;
+        &__content {
+            margin: 0;
+        }
+        &__left {
+            width: 100%;
+            margin: 0;
+        }
+        &__container {
+            max-width: none;
+        }
+        &__heading {
+            padding: 35px 0;
+            margin-bottom: 0;
+            margin: 0 auto;
+            width: calc(100% - 50px);
+            font-size: 36px;
+        }
+        &__text {
+            max-width: 305px;
+            margin: 0 auto;
+            margin-bottom: 35px;
+        }
+    }
+    .exemplum {
+        background: none;
+        &__caption {
+            font-size: 16px;
+        }
+        &__container {
+            margin: -160px auto 0;
+            height: 265px;
+        }
+        &__figure {
+            position: relative;
+            display: none;
+            padding: 0;
+            filter: none;
+            background-size: 315px;
+            height: 258px;
+            margin: 0;
+            background-repeat: no-repeat;
+            width: 303px;
+            margin: 0 auto;
+            margin-left: -21px;
+            &--active {
+                display: block;
+            }
+        }
+        &__slider {
+
+            &--mobile {
+                display: block;
+            }
+            &--desktop {
+                display: none;
+            }
+        }
+        &__input {
+            width: 80px;
+            &::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                cursor: pointer;
+                background: $green;
+                border: 1px solid $green;
+                border-radius: 10px;
+                width: 12px;
+                height: 12px;
+                margin-top: -1px;
+                box-shadow: none;
+            }
+            &::-webkit-slider-runnable-track {
+                background-color: $white;
+                border: 1px solid $light-gray;
+            }
+        }
     }
 }

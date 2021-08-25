@@ -20,9 +20,9 @@ toggleMobileMenuButton.addEventListener("click", function(evt) {
 });
 
 function funslid() {
-  var rng=document.getElementById('r1'); //rng - это Input
+  var rng=document.getElementById('slider1'); //rng - это Input
   var exafter=document.getElementById('exright'); // div - блок test
   var exbefore=document.getElementById('exleft'); // div - блок test
-  exafter.style.paddingRight='calc(8px - ' + rng.value + 'px';
-  exbefore.style.paddingLeft='calc(665px + ' + rng.value + 'px';
+  exafter.style.paddingRight='calc(10px - ' + rng.value + 'px';
+  exbefore.style.paddingLeft='calc(667px + ' + rng.value + 'px';
 }

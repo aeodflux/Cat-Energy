@@ -39,14 +39,12 @@
                         Функциональное питание для котов
                     </h2>
                     <p class="slogan__paragraph">
-                        Занялся собой? Займись котом!
+                        Занялся собой? Займись флоппой!
                     </p>
                 </article>
-                <div class="slogan__button">
-                    <a href="#" class="button">
-                        Подобрать программу
-                    </a>
-                </div>
+                <a class="button slogan__button">
+                    Подобрать программу
+                </a>
                 <img class="slogan__model" src="img/nav-model.png">
             </div>
     </header>
@@ -96,7 +94,7 @@
                 </li>
                 <li class="steps__item">
                     <img class="steps__icon" src="img/steps-icon-3.png"></img>
-                    <p class="steps__text">Замените один-два приема обычной еды на наше фунцкциональное питание.</p>
+                    <p class="steps__text">Замените один-два приема обычной еды на наше функциональное питание.</p>
                 </li>
                 <li class="steps__item">
                     <img class="steps__icon" src="img/steps-icon-4.png"></img>
@@ -111,35 +109,42 @@
                 <h2 class="example__heading">Живой пример</h2>
                     <div class="example__content">
                         <div class="example__container">
-                            <p class="example__text">Борис сбросил 5 кг за 2 месяца, просто заменив свой обычный корм на Cat Energy Slim. Отличный результат без изнуряющих тренировок! При этом он не менял своих привычек и по-прежнему спит по 16 часов в день. </p>
-                            <div class="statistics">
-                                <div class="statistics__container">
-                                    <div class="statistics__item">
-                                        5кг
-                                        <span class="statistics__caption">снижение веса</span>
-                                    </div>
+                            <div class="example__left">
+                                <p class="example__text">Григорий сбросил 5 кг за 2 месяца, просто заменив свой обычный корм на Cat Energy Slim. Отличный результат без изнуряющих тренировок! При этом он не менял своих привычек и по-прежнему спит по 16 часов в день. </p>
+                                <div class="statistics">
+                                    <div class="statistics__container">
                                         <div class="statistics__item">
-                                        60 дней
-                                        <span class="statistics__caption">затрачено времени</span>
+                                            5 кг
+                                            <span class="statistics__caption">снижение веса</span>
+                                        </div>
+                                            <div class="statistics__item">
+                                            60 дней
+                                            <span class="statistics__caption">затрачено времени</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="statistics__food-cost food-cost">
-                                    <p class="food-cost__heading">
-                                        Затраты на питание:
-                                    </p>
-                                    <span class="food-cost__price">15 000 руб.</span>
+                                    <div class="statistics__food-cost food-cost">
+                                        <p class="food-cost__heading">
+                                            Затраты на питание:
+                                        </p>
+                                        <span class="food-cost__price">15 000 руб.</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="exemplum">
                                 <div class="exemplum__container">
-                                    <div class="exemplum__figure exemplum__figure--position--before" id="exleft">
+                                    <div class="exemplum__figure exemplum__figure--position--before exemplum__figure--active" id="exleft">
                                     </div>
                                     <div class="exemplum__figure exemplum__figure--position--after" id="exright">
                                     </div>
                                 </div>
-                                <div class="slider exemplum__slider">
+                                <div class="slider exemplum__slider exemplum__slider--desktop">
                                     <span class="exemplum__caption">Было</span>
-                                    <input class="exemplum__input" type="range" min="-600" max="0" step="1" value="-460" id="r1" oninput="funslid()">
+                                    <input class="exemplum__input" type="range" min="-600" max="0" step="1" value="-460" id="slider1" oninput="funslid()">
+                                    <span class="exemplum__caption">Стало</span>
+                                </div>
+                                <div class="slider exemplum__slider exemplum__slider--mobile">
+                                    <span class="exemplum__caption">Было</span>
+                                    <input class="exemplum__input" type="range" min="0" max="1" step="1" value="0" id="slider2" oninput="funslidmob()">
                                     <span class="exemplum__caption">Стало</span>
                                 </div>
                             </div>
