@@ -1,23 +1,4 @@
-@keyframes anim-bef {
-    0% {
-        position: relative;
-    }
-    100% {
-        position: relative;
-        margin-left: 100%;
-    }
-}
 
-@keyframes anim-aft {
-    0% {
-        position: relative;
-        margin-left: -100%;
-    }
-    100% {
-        position: relative;
-        margin-left: 0;
-    }
-}
 
 .example {
     width: 100%;
@@ -400,7 +381,7 @@
         }
         &__figure {
             position: relative;
-            display: none;
+            // display: none;
             padding: 0;
             filter: none;
             background-size: 315px;
@@ -423,38 +404,39 @@
             &--position--after {
                 position: absolute;
                 margin-top: -250px;
+                transform: translate(100%, 0);
+                transition: transform 1s;
             }
+            
         }
         &__slider {
 
             &--mobile {
                 display: flex;
+                align-items: center;
             }
             &--desktop {
                 display: none;
             }
         }
         &__input {
-            width: 80px;
-            &::-webkit-slider-thumb {
-                -webkit-appearance: none;
-                cursor: pointer;
-                background: $green;
-                border: 1px solid $green;
-                border-radius: 10px;
-                width: 40px;
-                height: 10px;
-                // margin: 0 0 10px;
-                box-shadow: none;
-            }
-            &::-webkit-slider-runnable-track {
-                background-color: $white;
-                border: 1px solid $light-gray;
-                border-radius: 10px;
-                height: 20px;
-                padding: 5px;
-            }
+            width: 90px;
+            background-color: $white;
+            border: 1px solid $light-gray;
+            border-radius: 10px;
+            height: 20px;
+            padding: 5px;
         }
+    }
+    .slider__indicator {
+        position: absolute;
+        background: $green;
+        border: 1px solid $green;
+        border-radius: 10px;
+        width: 40px;
+        height: 10px;
+        margin-top: -5px;
+        transition: 1s;
     }
     .contacts {
         padding: 20px;

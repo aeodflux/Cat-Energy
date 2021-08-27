@@ -26,23 +26,51 @@ function funslid() {
   exafter.style.paddingRight='calc(10px - ' + rng.value + 'px)';
   exbefore.style.paddingLeft='calc(667px + ' + rng.value + 'px)';
 }
-var isactive = true;
-function funslidmob() {
-  var slider2 = document.getElementById('slider2')
-  var exafter=document.getElementById('exright') // div - блок test
-  var exbefore=document.getElementById('exleft') // div - блок test
-  if (slider2.value == 0) {
-    exbefore.classList.remove("exemplum__figure--unactive")
-    exbefore.classList.add("exemplum__figure--active")
-    exafter.classList.remove("exemplum__figure--active")
-    exafter.classList.add("exemplum__figure--unactive")
-    // closingTimeout = setTimeout(() => nav.classList.remove("nav--opened"), 800)
-  }
-  if (slider2.value == 1)  {
-    exafter.classList.remove("exemplum__figure--unactive")
-    exafter.classList.add("exemplum__figure--active")
-    exbefore.classList.remove("exemplum__figure--active")
-    exbefore.classList.add("exemplum__figure--unactive")
 
+var isSecondPicture = true;
+var exafter = document.getElementById('exright')
+var exbefore = document.getElementById('exleft')
+var isinitedCarousel = false;
+var changeButtonIndicator = document.querySelector(".slider__indicator");
+function toggleCarousel (evnt) {
+  isinitedCarousel = true;
+  evnt.preventDefault();
+  if (isSecondPicture == true) {
+    exbefore.style.transform = "translate(-100%, 0)"
+    exbefore.style.transition = "transform 1s"
+    exafter.style.transform = "translate(0, 0)"
+    changeButtonIndicator.style.transform = "translate(38px, 0)"
+  } 
+  else {
+    exbefore.style.transform = "translate(0, 0)"
+    exafter.style.transition = "transform 1s"
+    exafter.style.transform = "translate(100%, 0)"
+    changeButtonIndicator.style.transform = "translate(0px, 0)"
+  }
+  isSecondPicture = !isSecondPicture;
+}
+
+function initMobileCarousel() {
+  var changeButton = document.querySelector(".exemplum__input--mobile");
+  if (window.innerWidth <= 767) {
+    changeButton.addEventListener("click", toggleCarousel);
+    exafter.addEventListener("click", toggleCarousel);
+    exbefore.addEventListener("click", toggleCarousel);
   }
 }
+
+initMobileCarousel()
+
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 767) {
+    if (isinitedCarousel == true) {
+      exafter.removeEventListener("click", toggleCarousel);
+      exbefore.removeEventListener("click", toggleCarousel);
+      exbefore.style.transform = "unset"
+      exafter.style.transform = "unset"
+    }
+  } else {
+    initMobileCarousel()
+  }
+}
+);
