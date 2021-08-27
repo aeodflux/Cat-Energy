@@ -1,3 +1,24 @@
+@keyframes anim-bef {
+    0% {
+        position: relative;
+    }
+    100% {
+        position: relative;
+        margin-left: 100%;
+    }
+}
+
+@keyframes anim-aft {
+    0% {
+        position: relative;
+        margin-left: -100%;
+    }
+    100% {
+        position: relative;
+        margin-left: 0;
+    }
+}
+
 .example {
     width: 100%;
     &__heading {
@@ -176,6 +197,42 @@
         font-size: 18px;
     }
 }
+.map {
+    &__container {
+        background-color:$gray;
+        border: none;
+    }
+}
+.footer {
+    padding: 50px 0;
+    background-color: $gray;
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin: 0 auto;
+        max-width: 1189px;
+    }
+}
+.soc {
+    display: flex;
+    align-items: center;
+    &__item {
+        margin: 0 10px;
+    }
+}
+.caption {
+    text-decoration: none;
+    color: $black;
+    display: flex;
+    align-items: center;
+    &__name {
+        color: $light-gray;
+        text-transform: uppercase;
+        margin-right: 20px;
+        font-size: 25px;
+    }
+}
 
 
 @media screen and (max-width: $desktop) {
@@ -252,17 +309,25 @@
             margin-left: -366px;
         }
         &__input {
-            width: 550px;
+            width: 438px;
         }
     }
-}
-.contacts {
-    position: relative;
-    max-width: 100%;
-    margin: 0;
-    transform: none;
-    left: 0;
-    padding: 70px;
+    .contacts {
+        position: relative;
+        max-width: 100%;
+        margin: 0 auto;
+        transform: none;
+        left: 0;
+        padding: 70px;
+        max-width: 760px;
+    }
+    .footer {
+        &__container {
+            max-width: 895px;
+            margin: 0 auto;
+            width: calc(100% - 50px);
+        }
+    }
 }
 
 
@@ -331,6 +396,7 @@
         &__container {
             margin: -160px auto 0;
             height: 265px;
+            overflow: hidden;
         }
         &__figure {
             position: relative;
@@ -346,6 +412,17 @@
             margin-left: -21px;
             &--active {
                 display: block;
+                animation: anim-aft 1s both;
+            }
+            &--unactive {
+                display: block;
+                // margin-top: -250px;
+                position: absolute;
+                animation: anim-bef 1s both;
+            }
+            &--position--after {
+                position: absolute;
+                margin-top: -250px;
             }
         }
         &__slider {
@@ -381,6 +458,8 @@
     }
     .contacts {
         padding: 20px;
+        margin: 0 auto;
+        max-width: 486px;
         &__slogan {
             font-size: 16px;
             max-width: 140px;
@@ -389,5 +468,30 @@
             max-width: 140px;
             font-size: 14px;
         }
+    }
+    .footer {
+        &__logo {
+            width: fit-content;
+            margin: 0 auto;
+            margin-bottom: 35px;
+        }
+        &__container {
+            max-width: 320px;
+            flex-direction: column;
+        }
+    }
+    .soc {
+        justify-content: space-around;
+        padding: 25px 70px;
+        border: 2px solid $light-gray;
+        border-right: none;
+        border-left: none;
+        margin-bottom: 35px;
+    }
+    .caption {
+        justify-content: space-between;
+    }
+    .logo-footer {
+        width: 216px;
     }
 }
