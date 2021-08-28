@@ -21,9 +21,9 @@ toggleMobileMenuButton.addEventListener("click", function(evt) {
 
 var exafter=document.getElementById('exright'); // div - блок test
 var exbefore=document.getElementById('exleft'); // div - блок test
+var rng=document.getElementById('slider1'); //rng - это Input
 
 function funslid() {
-  var rng=document.getElementById('slider1'); //rng - это Input
   exafter.style.paddingRight='calc(10px - ' + rng.value + 'px)';
   exbefore.style.paddingLeft='calc(667px + ' + rng.value + 'px)';
 }
@@ -36,17 +36,16 @@ var changeButtonIndicator = document.querySelector(".slider__indicator");
 
 
 function toggleCarousel (evnt) {
-  isinitedCarousel = true;
   evnt.preventDefault();
   if (isSecondPicture == true) {
-    exbefore.style.transform = "translate(-100%, 0)"
     exbefore.style.transition = "transform 1s"
+    exbefore.style.transform = "translate(-100%, 0)"
     exafter.style.transform = "translate(0, 0)"
     changeButtonIndicator.style.transform = "translate(38px, 0)"
   } 
   else {
-    exbefore.style.transform = "translate(0, 0)"
     exafter.style.transition = "transform 1s"
+    exbefore.style.transform = "translate(0, 0)"
     exafter.style.transform = "translate(100%, 0)"
     changeButtonIndicator.style.transform = "translate(0px, 0)"
   }
@@ -64,20 +63,59 @@ function initMobileCarousel() {
 
 initMobileCarousel()
 
+var mobileResize = false;
+var desktopResize = false;
 window.addEventListener('resize', function() {
   if (window.innerWidth > 767) {
+    if (mobileResize === true) {
+      exbefore.style.paddingLeft = "211px"
+      exafter.style.paddingRight = "465px"
+      rng.value = "-460"
+    }
+    exbefore.style.transition = "transform 0s"
+    exafter.style.transition = "transform 0s"
     if (isinitedCarousel == true) {
       exafter.removeEventListener("click", toggleCarousel);
       exbefore.removeEventListener("click", toggleCarousel);
       exbefore.style.transform = "unset"
       exafter.style.transform = "unset"
-      exbefore.style.paddingLeft = "211px"
-      exafter.style.paddingRight = "465px"
     }
-  } else {
-    initMobileCarousel()
-    exbefore.style.paddingLeft = "0"
-    exafter.style.paddingRight = "0"
+    else {
+      exafter.removeEventListener("click", toggleCarousel);
+      exbefore.removeEventListener("click", toggleCarousel);
+      exbefore.style.transform = "unset"
+      exafter.style.transform = "unset"
+      exbefore.style.transform = "translate(0, 0)"
+      exafter.style.transform = "translate(0, 0)"
+    }
+    mobileResize = false
+    desktopResize = true
+    isSecondPicture = true;
+  } 
+  else {
+    // exafter.style.transition = "unset"
+    if (desktopResize === true) {
+      exbefore.style.transform = "translate(0, 0)"
+      exafter.style.transform = "translate(100%, 0)"
+      changeButtonIndicator.style.transform = "translate(0px, 0)"
+    }
+    exafter.addEventListener("click", toggleCarousel);
+    exbefore.addEventListener("click", toggleCarousel);
+    if (isinitedCarousel == true) {
+      exafter.addEventListener("click", toggleCarousel);
+      exbefore.addEventListener("click", toggleCarousel);
+      initMobileCarousel()
+      exbefore.style.paddingLeft = "0"
+      exafter.style.paddingRight = "0"
+      // exbefore.style.transition = "transform 1s"
+    }
+    else {
+      initMobileCarousel()
+      exbefore.style.paddingLeft = "0"
+      exafter.style.paddingRight = "0"
+    }
+    mobileResize = true
+    desktopResize = false
   }
 }
 );

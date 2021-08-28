@@ -407,6 +407,9 @@
                 transform: translate(100%, 0);
                 transition: transform 1s;
             }
+            &--position--before {
+                filter: saturate(0);
+            }
             
         }
         &__slider {
