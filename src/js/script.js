@@ -19,10 +19,11 @@ toggleMobileMenuButton.addEventListener("click", function(evt) {
   isMenuOpened = !isMenuOpened
 });
 
+var exafter=document.getElementById('exright'); // div - блок test
+var exbefore=document.getElementById('exleft'); // div - блок test
+
 function funslid() {
   var rng=document.getElementById('slider1'); //rng - это Input
-  var exafter=document.getElementById('exright'); // div - блок test
-  var exbefore=document.getElementById('exleft'); // div - блок test
   exafter.style.paddingRight='calc(10px - ' + rng.value + 'px)';
   exbefore.style.paddingLeft='calc(667px + ' + rng.value + 'px)';
 }
@@ -32,6 +33,8 @@ var exafter = document.getElementById('exright')
 var exbefore = document.getElementById('exleft')
 var isinitedCarousel = false;
 var changeButtonIndicator = document.querySelector(".slider__indicator");
+
+
 function toggleCarousel (evnt) {
   isinitedCarousel = true;
   evnt.preventDefault();
@@ -68,9 +71,13 @@ window.addEventListener('resize', function() {
       exbefore.removeEventListener("click", toggleCarousel);
       exbefore.style.transform = "unset"
       exafter.style.transform = "unset"
+      exbefore.style.paddingLeft = "211px"
+      exafter.style.paddingRight = "465px"
     }
   } else {
     initMobileCarousel()
+    exbefore.style.paddingLeft = "0"
+    exafter.style.paddingRight = "0"
   }
 }
 );
