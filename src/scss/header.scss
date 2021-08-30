@@ -49,7 +49,8 @@
         padding: 0;
         &--desktop{
             margin-top: 13px;
-            background-image: url('img/logo-desktop.png');
+            background-image: url('img/logo-desktop.svg');
+            background-size: 202px 59px;
             width: 202px;
             height: 59px;
         }
@@ -76,6 +77,8 @@
     }
     &__toggle-menu {
         display: none;
+        background-color: $white;
+        width: 24px;
     }
 }
 
@@ -286,9 +289,11 @@
             z-index: 2;
             .nav__toggle-menu {
                 background-image: url('img/nav-close.png');
-                width: 18px;
+                background-color: $white;
+                width: 24px;
                 height: 18px;
                 border: none;
+                background-repeat: no-repeat;
                 }
             .nav__menu {
                 margin: 0 auto;
