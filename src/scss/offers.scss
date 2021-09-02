@@ -33,16 +33,22 @@
     &__icon {
         grid-column: 1 / 1;
         grid-row: 1 / 1;
-        &-background {
-            margin-top: -30px;
-            width: 100px;
-            height: 162px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            grid-column: 1 / 1;
-            grid-row: 1 / 1;
+        &--1 {
+            background-image: url('img/cat-slim.svg');
+            background-repeat: no-repeat;
+            background-size: 70px, 97px;
         }
+        &--2 {
+            background-image: url('img/cat-pro.svg');
+            background-repeat: no-repeat;
+            background-size: ;
+        }
+        // &::before {
+        //     content: url('img/icon-bg.png');
+        //     position: absolute;
+        //     left: -50%;
+        //     transform: translate(-50%, 0);
+        // }
     }
     &__content {
         display: flex;
@@ -95,9 +101,6 @@
             grid-column: 2/2;
             grid-row: 1/3;
             align-self: center;
-            &::after {
-                content: url('img/cat-icon-back.svg');
-            }
             &--width {
                 &--1 {
                     margin-left: 100px;
