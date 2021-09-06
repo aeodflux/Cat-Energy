@@ -54,6 +54,9 @@
         color: $black;
         width: fit-content;
         margin: 0 0 20px;
+        &:active {
+            opacity: 30%;
+        }
     }
     &__link-text {
         margin: 0;

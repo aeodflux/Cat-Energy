@@ -148,6 +148,22 @@
         &--desktop {
             display: flex;
         }
+        .exemplum__caption {
+            border-bottom: 3px dotted $light-gray;
+        }
+        &:hover {
+            .exemplum__caption {
+                border-bottom: 2px solid $light-gray;
+            }
+            // .exemplum__input::-webkit-slider-thumb {
+            //     box-shadow: ;
+            // }
+        }
+        &:active {
+            .exemplum__caption {
+                border-bottom: none;
+            }
+        }
     }
     &__caption {
         margin: 0 24px;
@@ -201,6 +217,7 @@
     align-items: center;
     &__item {
         margin: 0 10px;
+        opacity: 70%;
     }
 }
 .caption {
