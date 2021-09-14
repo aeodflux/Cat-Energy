@@ -19,6 +19,20 @@ toggleMobileMenuButton.addEventListener("click", function(evt) {
   isMenuOpened = !isMenuOpened
 });
 
+
+
+var rng=document.getElementById('slider1'); //rng - это Input
+
+noUiSlider.create(rng, {
+    start: [-460],
+    connect: true,
+    range: {
+        'min': -600,
+        'max': 0
+    }
+});
+
+
 var exafter=document.getElementById('exright'); // div - блок test
 var exbefore=document.getElementById('exleft'); // div - блок test
 var rng=document.getElementById('slider1'); //rng - это Input
