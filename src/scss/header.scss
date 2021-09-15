@@ -103,9 +103,14 @@
     display: grid;
     grid-template-columns: repeat(2);
     grid-template-rows: repeat(3);
-
+    max-width: 1150px;
+    margin: 60px auto;
+    margin-top: 0;
+    &__container {
+        display: block;
+    }
     &__article {
-        margin-left: 193px;
+        // margin-left: 193px;
         margin-top: 113px;
         width: 414px;
         grid-column: 1 / 1;
@@ -125,7 +130,7 @@
     }
     &__button {
         cursor: pointer;
-        margin-left: 193px;
+        // margin-left: 193px;
         height: fit-content;
         text-align: center;
         padding: 10px 30px;
@@ -184,13 +189,19 @@
         }
     }
     .slogan {
+        max-width: calc(100% - 50px);
+        margin: 560px auto 0;
+        margin-top: 0;
+        &__container {
+            margin-left: 100px;
+        }
         &__article {
-            margin-left: 120px;
+            // margin-left: 120px;
             margin-top: 50px;
         }
-        &__button {
-            margin-left: 120px;
-        }
+        // &__button {
+        //     // margin-left: 120px;
+        // }
         &__model {
             position: absolute;
             width: 700px;
@@ -330,12 +341,20 @@
     .slogan {
         margin-top: 20px;
         display: grid;
+        max-width: 320px;
         grid-template-columns: repeat(1);
         grid-template-rows: repeat(3);
+        &__container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 1;
+            margin: 0;
+        }
         &__article {
             z-index: 1;
             width: fit-content;
-            margin: 29px 0 0;
+            // margin: 29px 0 0;
         }
         &__heading {
             color: $white;

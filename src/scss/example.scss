@@ -142,6 +142,7 @@
     }
     &__slider {
         display: flex;
+        align-items: center;
         &--mobile {
             display: none;
         }
@@ -153,7 +154,7 @@
         }
         &:hover {
             .exemplum__caption {
-                border-bottom: 2px solid $light-gray;
+                border-bottom: 3px solid $light-gray;
             }
             // .exemplum__input::-webkit-slider-thumb {
             //     box-shadow: ;
@@ -161,7 +162,7 @@
         }
         &:active {
             .exemplum__caption {
-                border-bottom: none;
+                border-bottom: 3px solid transparent;
             }
         }
     }

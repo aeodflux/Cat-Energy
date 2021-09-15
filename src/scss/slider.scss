@@ -1,0 +1,55 @@
+.slider {
+    &__input {
+        height: 10px;
+        background-color: $light-gray;
+        border: none;
+    }
+}
+.noUi-base {
+    background-color: $light-gray;
+    border-radius: 10px;
+}
+.noUi-handle {
+    position: relative;
+    background-color: none;
+    background: none;
+    border-radius: 100%;
+    box-shadow: 0px 3px 5px 5px rgba(155, 155, 155, 0.575);
+    width: 10px;
+    height: 10px; 
+    border-style: 2px solid $green;
+    &::before {
+        content: none;
+        display: none;
+    }
+    &::after {
+        position: absolute;
+        content: url(' ');
+        background-color: $green;
+        border-radius: 10px;
+        width: 12px;
+        height: 12px;
+        top: 0;
+        left: 10%;
+        transform: translate(50%, 50%);
+        box-shadow: 0px  0 0 15px $white;
+        &:active {
+            border-style: 2px solid $green;
+        }
+    }
+    &:hover {
+        box-shadow: 0px  3px 7px 7px rgba(136, 136, 136, 0.575); 
+    }
+    &:active {
+        box-shadow: 0px  3px 8px 8px rgba(88, 88, 88, 0.616); 
+    }
+}
+.noUi-active {
+    width: 20px;
+    height: 20px;
+    border-style: 2px solid $green;
+}
+.noUi-handle-lower {
+    width: 40px;
+    height: 40px;
+}
