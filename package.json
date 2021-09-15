@@ -23,5 +23,8 @@
     "gulp-sass": "^5.0.0",
     "sass": "^1.36.0"
   },
-  "browserslist": "last 2 versions"
+  "browserslist": "last 2 versions",
+  "dependencies": {
+    "nouislider": "^15.4.0"
+  }
 }

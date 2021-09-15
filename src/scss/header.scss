@@ -297,7 +297,8 @@
             border-bottom: solid #000 1px;
         }
         &__name--mobile {
-            background-image: url('img/name-mobile.png');
+            background-image: url('img/name-mobile.svg');
+            background-size: 101px, 18px;
             width: 101px;
             height: 18px;
         }
